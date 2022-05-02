@@ -1,86 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="home.css">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title></title>
+
 </head>
 <body>
-  <style type="text/css">
-.bar1{
-  text-decoration: none;
-  color: #abc;
-  border-style: hidden;
-  padding: 6px;
-  font-family: Hubballi;
-  font-size: 20px;
-  text-align: left;
+    <button onclick ="gender()">Hello</button>
+ <br>
+ <button onclick="time()">Click to show the time</button>
+ <br>
+ <button onclick="game()">Let's play a game!</button>
+ <br>
+ <button onclick="day()">Click to check the day</button>
+<br>
+<button onclick="p()">Set up your password</button>
+<script>
+
+ function gender(){
+    var a = prompt('What is your name?');
+    var b = prompt('What is your gender?("1" is male, "2" is female)');
+    
+    if(b == 1){
+        alert('Hi, Mr.'+ a)
+    }
+     else if (b == 2){
+         alert('Hi, Miss.'+ a)
+     }
 }
-.bar1:hover{
-  background-color: rgba(255, 255, 255, 0.66);
-  color: rgb(246, 127, 120);
+
+function time(){
+     var a = new Date().getHours();
+     if(a < 12){
+      alert('Good morning!')
+     }
+     else if(a > 12 || a < 18){
+      alert('Good afternoon!')
+     }
+     else if(a > 18 || a < 24){
+      alert('Good evening!')
+     }
+
 }
-  </style>
-  <ul>
-    <a class="bar1" href="home.html">Home</a>
-    <a class="bar1" href="1.html">Hamster</a>
-    <a class="bar1" href="2.html">Hedgehog</a>
-    <a class="bar1" href="3.html">Dog</a>
-    <a class="bar1" href="4.html">Duck</a>
-    <a class="bar1" href="5.html">Alpaca</a>
-    <a class="bar1" href="6.html">Fish</a>
-    <a class="bar1" href="7.html">Cat</a>
-    <a class="bar1" href="8.html">Rabbit</a>
-  </ul>
 
-	<svg viewBox="0 0 1000 1000" class="world" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
-  <defs>
-    <clipPath id="clip-path">
-      <circle  cx="500" cy="500" r="400"/>
-    </clipPath>
-    
-    <clipPath id="reflection">
-      <rect width="1000" height="500"/>
-    </clipPath>
-    
-    <symbol id="star" viewBox="-20 -20 40 40">
-      <circle class="stars" r="20"/>
-    </symbol>
+function game(){
+    var user = parseFloat(prompt('plz enter a number between 0 and 10:'));
+    var computer = Math.floor(Math.random()*11);
+    if(user > computer){
+        alert('The computer chooses '+ computer +' YOU WIN!')
+    }
+    else if(user < computer){
+        alert( 'The computer chooses '+ computer +' THE COMPUTER WINS!')
+    }
+    else('TIE GAME!')
+}
 
-    <radialGradient id="sky-gradient" cx="737.45" cy="94.64" r="800.05" gradientUnits="userSpaceOnUse">
-      <stop offset="0.03" stop-color="#ffd7ac"/>
-      <stop offset="0.5" stop-color="#f8a7a1"/>
-      <stop offset="0.92" stop-color="#6d5d91"/>
-    </radialGradient>
-    
-    <symbol id="sky" viewBox="0 0 1000 1000">
-      <rect width="1000" height="1000" fill="url(#sky-gradient)"/>
-      <circle id="sun" class="sun" cx="658" cy="265" r="62"/>
-      <use width="10" height="10" x="350" y="550" xlink:href="#star" class="star" />
-      <use width="10" height="10" x="470" y="650" xlink:href="#star" class="star" />
-      <use width="8" height="8" x="430" y="750" xlink:href="#star" class="star" />
-      <use width="9" height="9" x="250" y="650" xlink:href="#star" class="star" />
-      <use width="9" height="9" x="590" y="780" xlink:href="#star" class="star" />
-      <use width="5" height="5" x="700" y="750" xlink:href="#star" class="star" />
-      <use width="4" height="4" x="300" y="800" xlink:href="#star" class="star" />
-    </symbol>
-  </defs>
 
-  <g id="planet" clip-path="url(#clip-path)">
-    <use xlink:href="#sky" class="sky" class="sky"></use>
-    <g clip-path="url(#reflection)" class="reflection">
-      <use xlink:href="#sky" class="sky"></use>
-      <rect id="ocean_light" class="ocean"  width="1000" height="500"/>
-    </g>
-    <path class="hill_reflection" d="M638 547H457l51-32H-22l294 148 35-22 148 71 183-165"/>
-    <path class="hill_back" d="M-22 526l294-177 236 177H-22"/>
-    <path class="hill" d="M108 547l347-159 183 159H108"/>
-  </g>
-</svg>
 
-<div class="title">
-Pets in our life
-</div>
+function day(){
+ var d = new Date().getDay();
+ switch(d){
+    case 0:alert('Today is Sunday, The Last rest day😭.');
+      break;
+    case 1:alert('Today is Monday, Fighting.');
+      break;
+    case 2:alert('Today is Tuesday, Please fighting!.');
+      break;
+    case 3:alert('Today is Wednesday.');
+      break;
+    case 4:alert('Today is Thursday, stick to tomorrow!.');
+      break;
+    case 5:alert('Today is Friday, Yeahh.');
+      break;
+    case 6:alert('Today is Saturday, First day for weekend.');
+      break;
+ }
+}
+
+function p(){
+ var a = prompt('set up your password');
+ var a = a.toString();
+    if(a.length > 10){
+        alert('No more than 10 characters ');
+    }
+    else if(a.indexOf('!')!= -1){
+        alert('There will be no "!","?","$", and "#" in the password.');
+    }
+    else if(a.indexOf('$')!=-1){
+       alert('There will be no "!","?","$", and "#" in the password.')
+   } 
+    else if(a.indexOf('#')!=-1){
+        alert('There will be no "!","?","$", and "#" in the password.')
+    }
+    else if(a.indexOf('?')!=-1){
+        alert('There will be no "!","?","$", and "#" in the password.')
+    }
+    else if(a.indexOf('*')==0){
+        alert('The initial character can‘t be "*"')
+    }
+    else{
+        alert('You have created your password')
+    }
+}
+
+</script>
 </body>
 </html>
