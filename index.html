@@ -32,13 +32,13 @@
 
 function time(){
      var a = new Date().getHours();
-     if(a < 12){
+     if(a < 10){
       alert('Good morning!')
      }
-     else if(a > 12 || a < 18){
+     else if(a < 20){
       alert('Good afternoon!')
      }
-     else if(a > 18 || a < 24){
+     else{
       alert('Good evening!')
      }
 
